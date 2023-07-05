@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -21,6 +22,11 @@
             margin-bottom: 20px;
         }
 
+        #graph{
+            text-align: center;
+            margin-top: 15px;
+        }
+
         h1 {
             text-align: center;
             font-size: 24px;
@@ -28,17 +34,22 @@
             margin-bottom: 20px;
         }
 
+        #heading{
+            margin-top: 15px;
+        }
+
         .box-container {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 10px;
         }
 
         .box {
             background-color: #ffffff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            margin: 5px;
         }
 
         .box h2 {
@@ -67,7 +78,7 @@
             <button type="submit" class="btn btn-primary btn-block">Pokaż pogodę</button>
         </form>
 
-        <h1>Pogoda na najbliższe dni</h1>
+        <h1 id="heading">Pogoda na najbliższe dni</h1>
 
         <div class="box-container">
             {% for weather_info in data %}
@@ -81,6 +92,10 @@
                 {% endif %}
             </div>
             {% endfor %}
+
+        </div>
+        <div class="box" id="graph">
+            <img src="{% static 'wykres.png' %}" alt="Wykres temperatury">
         </div>
     </div>
 </body>
